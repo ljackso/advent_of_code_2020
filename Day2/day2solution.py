@@ -49,7 +49,7 @@ def main():
 
 	for entry in input_list:
 		letter = get_password_letter_requirement(entry)
-		(min_app, max_app) = get_password_apperance_requirement(entry)
+		(min_app, max_app) = get_password_apperance_requirements(entry)
 		password = get_password(entry)
 
 		if is_password_valid_part_one(letter, min_app, max_app, password): valid_password_count_p1 += 1
@@ -69,7 +69,7 @@ def is_password_valid_part_one(letter, min, max, password):
 def get_password_letter_requirement(entry):
 	return entry.split()[1][0]
 
-def get_password_apperance_requirement(entry):
+def get_password_apperance_requirements(entry):
 	app_req = entry.split()[0].split('-')
 	return (int(app_req[0]), int(app_req[1]))
 
