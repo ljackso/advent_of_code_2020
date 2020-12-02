@@ -1,6 +1,6 @@
 
 """
-Question 1)
+Part 1)
 
 Before you leave, the Elves in accounting just need you to fix your expense report (your puzzle input); apparently, something isn't quite adding up.
 
@@ -21,7 +21,7 @@ Of course, your expense report is much larger. Find the two entries that sum to 
 
 Your puzzle answer was 927684. 
 
-Question 2) 
+Part 2) 
 
 The Elves in accounting are thankful for your help; one of them even offers you a starfish coin they had left over from a past vacation. They offer you a second one if you can find three numbers in your expense report that meet the same criteria.
 
@@ -35,14 +35,14 @@ Your puzzle answer was 292093004.
 def main():
 	input_list = get_input_list("day1_Q1_input.txt")
 
-	print("Question 1")
+	print("Part 1")
 	(num_one, num_two) = check_for_two_val_sum(input_list, 2020)
 	solution = num_one * num_two
 
 	print((num_one, num_two))
 	print(solution)
 
-	print("Question 2")
+	print("Part 2")
 	(num_one, num_two, num_three) = check_for_three_val_sum(input_list, 2020)
 	solution = num_one * num_two * num_three
 
@@ -62,7 +62,7 @@ def check_for_three_val_sum(list, value): #n^3
 	for item_1 in list:
 		for item_2 in list:
 			for item_3 in list:
-				if item_1 != item_2 and item_1 != item_3 and item_2 != item_3 :
+				if item_1 != item_2 and item_1 != item_3 and item_2 != item_3:
 					if item_2 + item_1 +item_3 == value:
 						return (item_1, item_2, item_3)
 	return (0,0,0)
