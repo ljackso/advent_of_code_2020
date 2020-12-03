@@ -1,6 +1,6 @@
 """
 --- Day 2: Password Philosophy ---
-Question 1)
+Part 1)
 Your flight departs in a few days from the coastal airport; the easiest way down to the coast from here is via toboggan.
 
 The shopkeeper at the North Pole Toboggan Rental Shop is having a bad day. "Something's wrong with our computers; we can't log in!" You ask if you can take a look.
@@ -22,7 +22,7 @@ How many passwords are valid according to their policies?
 
 Your puzzle answer was 500.
 
-Question 2)
+Part 2)
 
 While it appears you validated the passwords correctly, they don't seem to be what the Official Toboggan Corporate Authentication System is expecting.
 
