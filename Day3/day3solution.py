@@ -74,7 +74,6 @@ Your puzzle answer was 2608962048.
 '''
 
 def main():
-	
 	non_repeating_map = get_input_list('day3_input.txt')
 
 	run1 = check_slope(1,1, non_repeating_map)
@@ -88,7 +87,6 @@ def main():
 	print('Part 2 = ' + str(run_sum))
 
 def check_slope(right, down, nr_map):
-
 	map_width = len(nr_map[0])
 	run_length = len(nr_map) - 1 
 
@@ -99,7 +97,7 @@ def check_slope(right, down, nr_map):
 	for instruction in range(0, run_length):
 		y += down
 		x += right
-		
+
 		if y > run_length: 
 			return trees 
 		elif nr_map[y][x % (map_width - 1)] == '#' : 
