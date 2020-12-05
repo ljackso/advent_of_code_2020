@@ -72,7 +72,6 @@ def main():
 		
 	rows_list.sort()
 	seats_map.sort(key=lambda tup: tup[0])
-
 	for row in rows_list:
 		row_seats = [x[1] for x in seats_map if x[0] == row]
 		for seat in range(0,8):
@@ -80,24 +79,17 @@ def main():
 				print('Empty seat at: row ' + str(row) + ' seat ' + str(seat) + ', id : ' + str(get_seat_id(row, seat)))
 
 def get_seat_pos(seat_code):
-
 	col_lower = 0
 	col_upper = 7
 
 	row_lower = 0
 	row_upper = 127
-	
-	#print(' columns range : ' + str((col_lower, col_upper)))
-	#print(' rows range : ' + str((row_lower, row_upper)))
 
 	for letter in seat_code:
 		if letter == 'B' : row_lower, row_upper = split_up(row_lower, row_upper)
 		if letter == 'F' : row_lower, row_upper = split_down(row_lower, row_upper)
 		if letter == 'R' : col_lower, col_upper = split_up(col_lower, col_upper)
 		if letter == 'L' : col_lower, col_upper = split_down(col_lower, col_upper)
-
-		#print(' columns range : ' + str((col_lower, col_upper)))
-		#print(' rows range : ' + str((row_lower, row_upper)))
 
 	return (row_lower, col_lower)
 
