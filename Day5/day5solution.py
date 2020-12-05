@@ -49,15 +49,12 @@ Your seat wasn't at the very front or back, though; the seats with IDs +1 and -1
 What is the ID of your seat?
 
 '''
-
 import math
 
 test_input_1 = 'FBFBBFFRLR' #357
 test_input_2 = 'BFFFBBFRRR' #567
 test_input_3 = 'FFFBBBFRRR' #119
 test_input_4 = 'BBFFBBFRLL' #820
-
-
 
 def main():
 	seat_list = get_input_list('day5_input.txt')
@@ -84,13 +81,13 @@ def get_seat_pos(seat_code):
 
 	row_lower = 0
 	row_upper = 127
-
+	
 	for letter in seat_code:
 		if letter == 'B' : row_lower, row_upper = split_up(row_lower, row_upper)
 		if letter == 'F' : row_lower, row_upper = split_down(row_lower, row_upper)
 		if letter == 'R' : col_lower, col_upper = split_up(col_lower, col_upper)
 		if letter == 'L' : col_lower, col_upper = split_down(col_lower, col_upper)
-
+	
 	return (row_lower, col_lower)
 
 def get_seat_id(row, column):
