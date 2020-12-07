@@ -76,23 +76,19 @@ def main():
 		if can_bag_hold_gold(key, bag_rules_input_dict) : bags_containing_gold.append(key)
 
 	print('Part 1 ' + str(len(bags_containing_gold))) 
-
 	print('Part 2 ' + str(count_required_bags('shiny gold bags', bag_rules_input_dict) - 1))
 
 def count_required_bags(name, bag_list):
 	if 'no other bags' in name: return 1
-
 	bag_count = 1
 	for bag in bag_list[name]:
 		bag_count += (count_required_bags(bag[0], bag_list) * bag[1])
-
 	return bag_count
 
 def can_bag_hold_gold(name, bag_list):
 	for bag in bag_list[name]:
 		if 'shiny gold bags' in bag[0] : return True
 		if can_bag_hold_gold(bag[0], bag_list) : return True
-
 	return False 
 
 def get_bag_list(val):
@@ -102,20 +98,16 @@ def get_bag_list(val):
 	for bag in val[:-2].split(', '):
 		q = int(bag[:1])
 		b = bag[2:]
-
 		if b[-1] != 's': b += 's'
-
 		bag_list.append((b,q))
 
 	return bag_list
 
 def get_input_list(fileName):
 	file = open(fileName, "r")
-
 	input_list = []
 	for line in file:
 		input_list.append(str(line))
-
 	return input_list
 
 if __name__ == "__main__":
