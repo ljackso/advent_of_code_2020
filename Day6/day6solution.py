@@ -112,7 +112,6 @@ def get_groups_list(input_list):
 			group_str = []
 		else:
 			group_str.append(line[:-1])
-
 	return groups
 
 def get_groups_str_list(input_list):
