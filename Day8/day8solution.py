@@ -94,7 +94,6 @@ def main():
 		index_history.append(index)
 	print(acc_val)
 
-
 	print('Part 2')
 	new_list = get_non_looping(instr_list) 
 	index_history = [0]

@@ -123,16 +123,13 @@ def get_groups_str_list(input_list):
 			group_str = ''
 		else:
 			group_str += (line[:-1])
-
 	return groups
 
 def get_input_list(fileName):
 	file = open(fileName, "r")
-
 	input_list = []
 	for line in file:
 		input_list.append(str(line))
-
 	return input_list
 
 if __name__ == "__main__":
