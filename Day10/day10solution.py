@@ -141,44 +141,29 @@ def main():
 	jolt_list = get_input_list('day10_input.txt')
 	jolt_list.sort()
 	jolt_list.insert(0,0)
-	joltage = jolt_list[len(jolt_list)-1] + 3
-	jolt_list.append(joltage)
+	jolt_list.append(jolt_list[len(jolt_list)-1] + 3)
 
-	(one_diffs, three_diffs) = get_diff_counts(jolt_list)
-	print('Part 1 diff sum : ' + str(one_diffs*three_diffs))
-
-	jolt_list_diff = []
-	jolt_list_diff_debug = []
+	diff_counts = [0,0,0,0]
+	combo_chain = []
+	combo_count = 1
 	for i in range(0,len(jolt_list)-1):
 		diff = jolt_list[i+1] - jolt_list[i]
-		jolt_list_diff_debug.append((jolt_list[i],diff))
-		jolt_list_diff.append(diff)
+		
+		#Part 1
+		if diff <= 3: diff_counts[diff] += 1
+		
+		#Part 2
+		if diff == 3: 
+			if len(combo_chain) == 2: combo_count *= 2
+			if len(combo_chain) == 3: combo_count *= 4
+			if len(combo_chain) == 4: combo_count *= 7
+			combo_chain = []
+		elif diff > 0 and diff <= 2:
+			combo_chain.append(diff)
 
-	combo_count = 1
-	combo_chains = get_combo_chains(jolt_list_diff)
-	for combo in combo_chains:
-		if len(combo) == 2: combo_count *= 2
-		if len(combo) == 3: combo_count *= 4
-		if len(combo) == 4: combo_count *= 7
-
+	print('Part 1 diff sum : ' + str(diff_counts[1]*diff_counts[3]))
 	print('Part 2 combo count : ' + str(combo_count))
 
-def get_combo_chains(in_list):
-	output = [[]]
-	for x in in_list:
-		if x == 3: 
-			output.append([])
-		else:
-			output[-1].append(x)
-	return output
-
-def get_diff_counts(in_list):
-	diff_counts = [0,0,0,0]
-	for i in range(0,len(in_list)-1):
-		diff = in_list[i+1] - in_list[i]
-		if diff <= 3:
-			diff_counts[diff] += 1
-	return (diff_counts[1], diff_counts[3])
 
 def get_input_list(fileName):
 	file = open(fileName, "r")
