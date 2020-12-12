@@ -64,18 +64,14 @@ def visible_seats_adjacent(y,x,chart):
 				if is_occ_seats_direction(y,x,i,j,chart): occ_count += 1
 	return occ_count
 
-# returns (occupied,empty)
 def seats_adjacent(y,x,chart):
 	occ_count = 0
-	empt_count = 0
-	oor_count = 0
 	for i in range(y-1,y+2):
 		for j in range(x-1,x+2):
 			if (i,j) != (y,x) and i >= 0 and j >= 0 and i < len(chart) and j <len(chart[0]):
 				if chart[i][j] == '#' : occ_count += 1
 				if chart[i][j] == 'L' : empt_count += 1
 	return occ_count
-
 
 def get_input_list(fileName):
 	file = open(fileName, "r")
